@@ -1,5 +1,10 @@
 #!/usr/bin/python
+import subprocess
+import sys
 
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+install("netCDF4")
 from scipy.stats import cauchy
 import random
 import math
@@ -8,12 +13,12 @@ import numpy as np
 import netCDF4 as nc
 import argparse
 
-parser = argparse.ArgumentParser()
+'''parser = argparse.ArgumentParser()
 parser.add_argument("numberRegions", type=int,
                     help="Number of HII Regions to Populate in Model")
-args = parser.parse_args()
-numRegions = args.numberRegions # Prompt User for number of Hii regions
-ff=nc.Dataset('larson_radius_hypercube.ncdf') # Import data cube from Tremblin et. al. 2014
+args = parser.parse_args()''' 
+numRegions = 10000# args.numberRegions = # Prompt User for number of Hii regions
+ff=nc.Dataset('OneDrive/Documents/GitHub/galSims/misc/larson_radius_hypercube.ncdf') # Import data cube from Tremblin et. al. 2014
 region = 1 # Start count of regions from 1 to NumRegions
 HiiList = [] # Initialize list to store Hii data
 
@@ -299,13 +304,13 @@ while region <= numRegions :
 
         numCluster += 1
     
-with open("3DHiiRegions.csv", "wb") as f:
+with open("OneDrive/Documents/GitHub/galSims/misc/3DHiiRegions.csv", "w") as f:
     writer = csv.writer(f)
     writer.writerows(HiiList)
     
-print "Diffuse Luminosity : " + str(diffLum*100/totLum) + "% (" + str(diffCount) + " Regions)"
-print "Bar Luminosity : " + str(barLum*100/totLum) + "% (" + str(barCount) + " Regions)"
-print "3 kpc Arm Luminosity : " + str(ThreekpcLum*100/totLum) + "% ("+ str(ThreekpcCount) + " Regions)"
-print "Ring Luminosity : " + str(ringLum*100/totLum) + "% ("+ str(ringCount) + " Regions)"
-print "Spiral Luminosity : " + str(sprLum*100/totLum) + "% (" + str(sprCount) + " Regions)"
-print "Total Luminosity : " + str((barLum+ThreekpcLum+ringLum+sprLum+diffLum)*100/totLum) + "% (" + str(barCount+ThreekpcCount+ringCount+sprCount+diffCount) + " Regions)"
+print ("Diffuse Luminosity : " + str(diffLum*100/totLum) + "% (" + str(diffCount) + " Regions)")
+print ("Bar Luminosity : " + str(barLum*100/totLum) + "% (" + str(barCount) + " Regions)")
+print ("3 kpc Arm Luminosity : " + str(ThreekpcLum*100/totLum) + "% ("+ str(ThreekpcCount) + " Regions)")
+print ("Ring Luminosity : " + str(ringLum*100/totLum) + "% ("+ str(ringCount) + " Regions)")
+print ("Spiral Luminosity : " + str(sprLum*100/totLum) + "% (" + str(sprCount) + " Regions)")
+print ("Total Luminosity : " + str((barLum+ThreekpcLum+ringLum+sprLum+diffLum)*100/totLum) + "% (" + str(barCount+ThreekpcCount+ringCount+sprCount+diffCount) + " Regions)")
