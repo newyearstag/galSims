@@ -303,9 +303,9 @@ with open("3DHiiRegions.csv", "wb") as f:
     writer = csv.writer(f)
     writer.writerows(HiiList)
     
-print "Diffuse Luminosity : " + str(diffLum*100/totLum) + "% (" + str(diffCount) + " Regions)"
-print "Bar Luminosity : " + str(barLum*100/totLum) + "% (" + str(barCount) + " Regions)"
-print "3 kpc Arm Luminosity : " + str(ThreekpcLum*100/totLum) + "% ("+ str(ThreekpcCount) + " Regions)"
-print "Ring Luminosity : " + str(ringLum*100/totLum) + "% ("+ str(ringCount) + " Regions)"
-print "Spiral Luminosity : " + str(sprLum*100/totLum) + "% (" + str(sprCount) + " Regions)"
-print "Total Luminosity : " + str((barLum+ThreekpcLum+ringLum+sprLum+diffLum)*100/totLum) + "% (" + str(barCount+ThreekpcCount+ringCount+sprCount+diffCount) + " Regions)"
+print ("Diffuse Luminosity : " + str(diffLum*100/totLum) + "% (" + str(diffCount) + " Regions)")
+print ("Bar Luminosity : " + str(barLum*100/totLum) + "% (" + str(barCount) + " Regions)")
+print ("3 kpc Arm Luminosity : " + str(ThreekpcLum*100/totLum) + "% ("+ str(ThreekpcCount) + " Regions)")
+print ("Ring Luminosity : " + str(ringLum*100/totLum) + "% ("+ str(ringCount) + " Regions)")
+print ("Spiral Luminosity : " + str(sprLum*100/totLum) + "% (" + str(sprCount) + " Regions)")
+print ("Total Luminosity : " + str((barLum+ThreekpcLum+ringLum+sprLum+diffLum)*100/totLum) + "% (" + str(barCount+ThreekpcCount+ringCount+sprCount+diffCount) + " Regions)")
