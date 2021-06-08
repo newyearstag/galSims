@@ -1,5 +1,9 @@
 #!/usr/bin/python
-
+import subprocess
+import sys
+def install(netCDF4):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", netCDF4]) #using pip to install a netCDF4
+    
 from scipy.stats import cauchy
 import random
 import math
