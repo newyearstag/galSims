@@ -8,6 +8,7 @@ Galactic HII Region Simulations - Read Me File
 
 Dr. William P. Armentrout
 Dr. Loren D. Anderson
+Robert Coleman
 West Virginia University
 
 ———
