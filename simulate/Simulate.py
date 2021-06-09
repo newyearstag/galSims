@@ -18,7 +18,7 @@ parser.add_argument("numberRegions", type=int,
                     help="Number of HII Regions to Populate in Model")
 args = parser.parse_args()''' 
 numRegions = 10000# args.numberRegions = # Prompt User for number of Hii regions
-ff=nc.Dataset('OneDrive/Documents/GitHub/galSims/misc/larson_radius_hypercube.ncdf') # Import data cube from Tremblin et. al. 2014
+ff=nc.Dataset(r'C:/Users/newye/OneDrive/Documents/GitHub/galSims/misc/larson_radius_hypercube.ncdf') # Import data cube from Tremblin et. al. 2014
 region = 1 # Start count of regions from 1 to NumRegions
 HiiList = [] # Initialize list to store Hii data
 
@@ -244,7 +244,7 @@ while region <= numRegions :
 
         # From Distributions, Determine HII Region Radius
         # Using Pascal Tremblin's hypercube data
-        radius = ff.variables['radius'][timeParam,fluxParam,TeParam,densityParam]
+        radius = ff.variables['radius'][timeParam,fluxParam,TeParam,densityParam].data
 
         # Rotate galaxy
         xRot = x*math.cos(galRot) - y*math.sin(galRot)
@@ -303,8 +303,8 @@ while region <= numRegions :
         HiiList.append([galRad,xRot,yRot,z,mass,lum,age,radius,l,vR,regNum,b])
 
         numCluster += 1
-    
-with open("OneDrive/Documents/GitHub/galSims/misc/3DHiiRegions.csv", "w") as f:
+        
+with open(r"C:/Users/newye/OneDrive/Documents/GitHub/galSims/misc/3DHiiRegions.csv", "w",newline = "") as f:
     writer = csv.writer(f)
     writer.writerows(HiiList)
     
