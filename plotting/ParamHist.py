@@ -1,17 +1,19 @@
 import matplotlib.pyplot as plt
 import argparse
 
-parser = argparse.ArgumentParser()
+'''parser = argparse.ArgumentParser()
 parser.add_argument("parameter", type=str,
                     help="Options : mass, age, radius, lum, velo, long")
 parser.add_argument("numberBins", type=int,
                     help="Set number of bins for histogram")
 args = parser.parse_args()
 param = args.parameter # Prompt User for plotting parameter
-numBins = args.numberBins # Prompt User for number of bins
+numBins = args.numberBins()''' # Prompt User for number of bins
+param = "mass"
+numBins = 50
 
 # Open CSV File
-datafile = open('3DHiiRegions.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\3DHiiRegions.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
@@ -110,9 +112,5 @@ elif param == "long" :
     plt.show()
 
 else :
-    print "Invalid Parameter"
+    print ("Invalid Parameter")
     quit
-
-
-
-

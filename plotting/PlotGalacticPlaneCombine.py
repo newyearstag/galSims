@@ -5,10 +5,11 @@ ocol = str('#FF0000') # Sets color of original regions
 ccol = str('#5FB404') # Sets color of clustered regions
 
 # Open CSV File
-datafile = open('3DHiiRegions.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\3DHiiRegions.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
+print (len(csvFile))
 
 # Save Galactic Radius Info from CSV to new list
 ldata = list()
@@ -23,7 +24,8 @@ while index < len(csvFile) :
 
 
 # Open CSV File
-datafileC = open('3DHiiRegionsAngularCombine.csv', 'r')
+#datafileC = open('3DHiiRegionsAngularCombine.csv', 'r')
+datafileC = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\3DHiiRegions.csv', 'r')
 csvFileC = []
 for row in datafileC:
     csvFileC.append(row.strip().split(','))

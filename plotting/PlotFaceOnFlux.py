@@ -11,10 +11,11 @@ rcol = str('#086A87')
 scol = str('black')
 
 # Open CSV File
-datafile = open('3DHiiRegions.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\3DHiiRegions.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
+print (len(csvFile))
 
 # Save Galactic Radius Info from CSV to new list
 thetadata = list()
