@@ -3,14 +3,15 @@ import math
 import csv
 import argparse
 
-parser = argparse.ArgumentParser()
+'''parser = argparse.ArgumentParser()
 parser.add_argument("iterTotal", type=int,
                     help="Number of Clustering Iterations")
 args = parser.parse_args()
-iterTot = args.iterTotal # Prompt User for number of iterations of clustering
+iterTot = args.iterTotal''' # Prompt User for number of iterations of clustering
+iterTot = 1 #random number
 
 # Open CSV File
-datafile = open('3DHiiRegions.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\3DHiiRegions.csv', 'r')
 csvFile = []
 newFile = []
 removeList = []
@@ -59,7 +60,13 @@ while iterNum < iterTot :
 
             indexDist = pow(pow(xIndex,2)+pow(yIndex-sunPos,2),0.5)*1000
             targetDist = pow(pow(xTarget,2)+pow(yTarget-sunPos,2),0.5)*1000
-            angDist = math.acos(math.sin(bTarget)*math.sin(bIndex)+math.cos(bTarget)*math.cos(bIndex)*math.cos(lTarget-lIndex))
+            #print(str(bTarget) + " " + str(bIndex) + " " + str(lTarget) + " " + str(lIndex))
+            
+            try :
+                angDist = math.acos(math.sin(bTarget)*math.sin(bIndex)+math.cos(bTarget)*math.cos(bIndex)*math.cos(lTarget-lIndex))
+            except :
+                print("angDist problem")
+            #print(angDist)
             angRadIndex = math.atan(radIndex/indexDist)
             angRadTarget = math.atan(radTarget/targetDist)
             
@@ -83,7 +90,7 @@ while iterNum < iterTot :
                             veloNew = (lumTarget*veloTarget+lumIndex*veloIndex)/(lumTarget+lumIndex)
                         except :
                             veloNew = veloTarget
-                            print "Velo Problem" + str(index)
+                            print ("Velo Problem" + str(index))
                         sunDist = pow(pow(xNew,2)+pow(yNew-sunPos,2),0.5)                               
                         lNew = math.copysign(math.acos((pow(sunDist,2)+pow(sunPos,2)-pow(galRad,2))/(2*sunPos*sunDist))*180/math.pi,xNew)
                         bNew = math.atan((zNew-sunHeight)/sunDist)
@@ -100,7 +107,7 @@ while iterNum < iterTot :
                             veloNew = (lumTarget*veloTarget+lumIndex*veloIndex)/(lumTarget+lumIndex)
                         except :
                             veloNew = veloTarget
-                            print "Velo Problem" + str(index)
+                            print ("Velo Problem" + str(index))
                         sunDist = pow(pow(xNew,2)+pow(yNew-sunPos,2),0.5)                               
                         lNew = math.copysign(math.acos((pow(sunDist,2)+pow(sunPos,2)-pow(galRad,2))/(2*sunPos*sunDist))*180/math.pi,xNew)
                         bNew = math.atan((zNew-sunHeight)/sunDist)
@@ -117,7 +124,7 @@ while iterNum < iterTot :
                     yNew = (yTarget*massTarget + yIndex*massIndex)/(massTarget+massIndex)
                     zNew = (zTarget*massTarget + zIndex*massIndex)/(massTarget+massIndex)
                     galRad = pow(pow(xNew,2)+pow(yNew,2),.5)
-                    radNew = (radTarget + radIndex + dist)/2
+                    radNew = (radTarget + radIndex + angDist)/2
                     effMass = massTarget + massIndex
                     lumNew = lumTarget + lumIndex
                     ageNew = (massTarget*ageTarget+massIndex*ageIndex)/(massTarget+massIndex)
@@ -125,7 +132,7 @@ while iterNum < iterTot :
                         veloNew = (lumTarget*veloTarget+lumIndex*veloIndex)/(lumTarget+lumIndex)
                     except :
                         veloNew = veloTarget
-                        print "Velo Problem" + str(index)
+                        print ("Velo Problem" + str(index))
                     sunDist = pow(pow(xNew,2)+pow(yNew-sunPos,2),0.5)                               
                     lNew = math.copysign(math.acos((pow(sunDist,2)+pow(sunPos,2)-pow(galRad,2))/(2*sunPos*sunDist))*180/math.pi,xNew)
                     bNew = math.atan((zNew-sunHeight)/sunDist)
@@ -157,14 +164,14 @@ while iterNum < iterTot :
         target += 1
     iterNum += 1       
 
-with open("3DHiiRegionsAngularCombine.csv", "wb") as f:
+with open(r"C:/Users/newye/OneDrive/Documents/GitHub/galSims/misc/3DHiiRegionsAngularCombine.csv", "w", newline = "") as f:
     writer = csv.writer(f)
     writer.writerows(newFile)
 
-print "Engulfed Regions : " + str(float(engulf*100/len(csvFile))) + "%"
-print "Overlapped Regions : " + str(float(overlap*100/len(csvFile))) + "%"
-print "Separate Regions : " + str(float(separate*100/len(csvFile))) + "%"
-print engulf
-print overlap
-print separate
-print len(csvFile)
+print ("Engulfed Regions : " + str(float(engulf*100/len(csvFile))) + "%")
+print ("Overlapped Regions : " + str(float(overlap*100/len(csvFile))) + "%")
+print ("Separate Regions : " + str(float(separate*100/len(csvFile))) + "%")
+print (engulf)
+print (overlap)
+print (separate)
+print (len(csvFile))
