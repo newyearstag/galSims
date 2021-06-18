@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.font_manager as font_manager
 
 # Open CSV File
-datafile = open('../MASTER_DISTRIBUTIONS/HIIregion_popSynthesis.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\HIIregion_popSynthesis_test.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
