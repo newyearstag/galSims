@@ -7,10 +7,11 @@ import numpy
 
 
 # Open CSV File
-datafile = open('wise_hii_V1.3_hrds.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\wise_hii_V1.3_hrds.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
+#print(csvFile[0])
 
 # Save Galactic Radius Info from CSV to new list
 xdataW = list()
@@ -88,10 +89,11 @@ NlyLimit = 47.56
 
 
 # Open CSV File
-datafile = open('../MASTER_DISTRIBUTIONS/HIIregion_popSynthesis.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\HIIregion_popSynthesis_test.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
+print(csvFile[0])
 
 # Save Galactic Radius Info from CSV to new list
 xdataS = list()
