@@ -3,6 +3,7 @@ from matplotlib.pyplot import Rectangle # Used to make dummy legend
 import matplotlib
 import matplotlib.font_manager as font_manager
 
+def PlotFaceOn_Sim()
 # Open CSV File
 datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\HIIregion_popSynthesis_test.csv', 'r')
 csvFile = []

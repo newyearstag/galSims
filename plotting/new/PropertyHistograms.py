@@ -17,7 +17,7 @@ northMax = 65
 
 # Open CSV File from Simulation
 #datafileS = open('../MASTER_DISTRIBUTIONS/3DHiiRegions.csv', 'r')
-datafileS = open('../MASTER_DISTRIBUTIONS/HIIregion_popSynthesis.csv', 'r')
+datafileS = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\HIIregion_popSynthesis_test.csv', 'r')
 csvFileS = []
 for row in datafileS:
     csvFileS.append(row.strip().split(','))
@@ -94,7 +94,7 @@ while indexW < len(csvFileW) :
     indexW += 1
 '''
 # WISE CATALOG, VERSION 2
-datafileW = open('../MASTER_DISTRIBUTIONS/wise_hii_V2.0_hrds.csv', 'r')
+datafileW = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\wise_hii_V2.0_hrds.csv', 'r')
 csvFileW = []
 for row in datafileW:
     csvFileW.append(row.strip().split(','))
@@ -131,8 +131,8 @@ while indexW < len(csvFileW) :
 
 ## R_Gal Histogram ##
 n_bins = 100
-ax0.hist(R_gal_sim, n_bins, normed=1, range=[0,20], histtype='bar', color = sim_color, label = '')
-ax0.hist(R_gal_wise, n_bins, normed=1, range=[0,20], histtype='step', color = wise_color, label = '')
+ax0.hist(R_gal_sim, n_bins, range=[0,20], histtype='bar', color = sim_color, label = '') #normed = 1 after n_bins
+ax0.hist(R_gal_wise, n_bins, range=[0,20], histtype='step', color = wise_color, label = '') #Read above
 #ax0.legend(prop={'size': 10})
 ax0.set_xlabel('Galactocentric Radius (kpc)')
 
@@ -143,16 +143,16 @@ ax0.set_xlabel('Galactocentric Radius (kpc)')
 
 ## Heliocentric Distance ##
 n_bins = 100
-ax1.hist(dist_sim, n_bins, normed=1, range=[0,30], histtype='bar', color = sim_color, label = '')
-ax1.hist(dist_wise, n_bins, normed=1, range=[0,30], histtype='step', color = wise_color, label = '')
+ax1.hist(dist_sim, n_bins, range=[0,30], histtype='bar', color = sim_color, label = '') #normed=1 after n_bins
+ax1.hist(dist_wise, n_bins, range=[0,30], histtype='step', color = wise_color, label = '') #^^^^^^^^^^^^^^^^
 ax1.set_xlabel('Heliocentric Distance (kpc)')
 
 
     
 ## z Height ##
 n_bins = 100
-ax2.hist(z_sim*1000, n_bins, range=[-100,100], normed=1, histtype='bar', color = sim_color, label = '')
-ax2.hist(z_wise, n_bins, range=[-100,100], normed=1, histtype='step', color = wise_color, label = '')
+ax2.hist(z_sim*1000, n_bins, range=[-100,100], histtype='bar', color = sim_color, label = '')#normed=1 after range
+ax2.hist(z_wise, n_bins, range=[-100,100], histtype='step', color = wise_color, label = '')#^^^^^^^^^^^^^^^^
 ax2.set_xlabel('z-Height (pc)')
 
 '''
@@ -169,8 +169,8 @@ ax3.set_title('Diameter (pc)')
 # MAKE SURE THIS IS REALLY DIAMETER
 # NOTE: In one version of the simulation code, all sizes are 1
 n_bins = 100
-ax3.hist(rad_sim_angular, n_bins, range=[0,10], normed=1, histtype='bar', color = sim_color, label = '')
-ax3.hist(rad_wise_angular, n_bins, range=[0,10], normed=1, histtype='step', color = wise_color, label = '')
+ax3.hist(rad_sim_angular, n_bins, range=[0,10], histtype='bar', color = sim_color, label = '') #normed=1 after range
+ax3.hist(rad_wise_angular, n_bins, range=[0,10], histtype='step', color = wise_color, label = '')#^^^^
 ax3.set_xlabel('Angular Diameter (arcmin)')
 
 

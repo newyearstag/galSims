@@ -1,0 +1,22 @@
+#This serves to connect to app and highlight Hii regions
+import os
+from astropy.table import Table
+table = Table.read(os.path.join('C:', r'\Users\newye\OneDrive\Documents\GitHub\galSims\misc\wise_hii_V2.0_hrds.csv'), delimiter=',',format='ascii.basic', fast_reader=False)
+
+#table = Table.read(hiiregions, delimiter=',', format='ascii.basic', fast_reader=False)
+#hiiregions = os.path.join('C:', r'\Users\newye\OneDrive\Documents\GitHub\galSims\misc\wise_hii_V2.0_hrds.csv')
+#table = Table.read(hiiregions, delimiter=',',format='ascii.basic', fast_reader=False)
+
+from pywwt.jupyter import connect_to_app    #connects to pywwt app
+wwt = connect_to_app()
+#print(hiiregions)
+
+layer = wwt.layers.add_data_layer(table=table, frame='galactic', lon_att='GLong', lat_att='GLat', color='white') #adds dots over regions on pywwt
+layer.size_scale = 50
+
+#wwt.set_view('universe')
+#wwt.set_view('milky way')
+#from astropy import units as u
+#from astropy.coordinates import SkyCoord
+#wwt.center_on_coordinates(SkyCoord(76.32, 13.5, unit='deg', frame='galactic'), fov=20 * u.deg)
+#05:33:46 +00:59:31
