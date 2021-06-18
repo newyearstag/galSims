@@ -7,7 +7,7 @@ markerScaling=25.
 pointSize=3.
 
 # Open CSV File
-datafile = open('../MASTER_DISTRIBUTIONS/HIIregion_popSynthesis.csv', 'r')
+datafile = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\HIIregion_popSynthesis_test.csv', 'r')
 csvFile = []
 for row in datafile:
     csvFile.append(row.strip().split(','))
@@ -27,7 +27,7 @@ while index < len(csvFile) :
     index += 1
 
 # Open CSV File for Wise Version 3
-datafileW3 = open('../MASTER_DISTRIBUTIONS/wise_hii_V1.3_hrds.csv', 'r')
+datafileW3 = open(r'C:\Users\newye\OneDrive\Documents\GitHub\galSims\misc\wise_hii_V1.3_hrds.csv', 'r')
 csvFileW3 = []
 for row in datafileW3:
     csvFileW3.append(row.strip().split(','))
