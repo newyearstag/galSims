@@ -44,6 +44,26 @@ Produces the output file “3DHiiRegionsCombine.csv”.
 
 —
 
+Simulate_Function.py
+
+Produces the output file “3DHiiRegions.csv”.
+
+_
+
+NEEDS FIXED - Simulate_new_Function.py (no output file produced)
+
+Simulate_new_Function.py
+
+Produces the output file “HIIregion_popSynthesis.csv”.
+
+_
+NEEDS FIXED - RunSim.ipynb (files of RunSim are not complete or ready to run. pdf is also an issue)
+
+RunSim.ipynb
+
+Collectively runs functions present for the simulate and compiles images to a pdf.
+
+
 ## DATA VISUALIZATION ##
 
 —
@@ -92,6 +112,21 @@ Takes as the first input the parameter of interest (age, mass, lum, rad) and as 
 input number of histogram bins.
 
 —
+PlotFaceOn_Combine.py
+NEEDS TO BE FIXED
+_
+
+PlotFaceOn_Combine_NoAxes.py
+_
+
+PlotFaceOn_Sim.py
+_
+
+PlotGalacticPlane_Combine.py
+_
+
+Plotlv_Combine.py
+_
 
 RadialLogHistGC.py (numberBins)
 
@@ -108,4 +143,19 @@ Displays a plot of Theta versus Log(R). A spiral galaxy should display sloped li
 
 —
 
+## Common Errors and Solutions ##
+
+CSV File is skipping lines. Solution: add newline = "" EX: with open(r"C:/Users/newye/OneDrive/Documents/GitHub/galSims/misc/3DHiiRegions.csv", "w",newline = "") as f:
+_
+
+List Index Out Of Range. Solution: Working on one currently. Try printing the file to see if numbers indeces are correct.
+_
+
+Function values are not defined. Solution: Values in python 3 must be defined before executing. Make sure it is located in the right position.
+_
+
+Code executes but I get the wrong numbers. Solution: print the file EX: print(csvFileS) to see if you have the right file.
+_
+
+File is not in directory after running code executes. Solution: Still working on one.
 
