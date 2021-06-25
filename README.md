@@ -50,20 +50,6 @@ Produces the output file “3DHiiRegions.csv”.
 
 _
 
-NEEDS FIXED - Simulate_new_Function.py (no output file produced)
-
-Simulate_new_Function.py
-
-Produces the output file “HIIregion_popSynthesis.csv”.
-
-_
-NEEDS FIXED - RunSim.ipynb (files of RunSim are not complete or ready to run. pdf is also an issue)
-
-RunSim.ipynb
-
-Collectively runs functions present for the simulate and compiles images to a pdf.
-
-
 ## DATA VISUALIZATION ##
 
 —
@@ -112,21 +98,7 @@ Takes as the first input the parameter of interest (age, mass, lum, rad) and as 
 input number of histogram bins.
 
 —
-PlotFaceOn_Combine.py
-NEEDS TO BE FIXED
-_
 
-PlotFaceOn_Combine_NoAxes.py
-_
-
-PlotFaceOn_Sim.py
-_
-
-PlotGalacticPlane_Combine.py
-_
-
-Plotlv_Combine.py
-_
 
 RadialLogHistGC.py (numberBins)
 
@@ -146,16 +118,63 @@ Displays a plot of Theta versus Log(R). A spiral galaxy should display sloped li
 ## Common Errors and Solutions ##
 
 CSV File is skipping lines. Solution: add newline = "" EX: with open(r"C:/Users/newye/OneDrive/Documents/GitHub/galSims/misc/3DHiiRegions.csv", "w",newline = "") as f:
-_
 
-List Index Out Of Range. Solution: Working on one currently. Try printing the file to see if numbers indeces are correct.
-_
+—
 
-Function values are not defined. Solution: Values in python 3 must be defined before executing. Make sure it is located in the right position.
-_
+List Index Out Of Range. Solution: Try printing the file you are reading to make sure it is being read correctly or that no lines are skipping then fix the file.
+
+—
+
+Function values are not defined. Solution: Values in python 3 must be defined before executing. Make sure it is located in the right position or add variables before the function.
+
+—
 
 Code executes but I get the wrong numbers. Solution: print the file EX: print(csvFileS) to see if you have the right file.
+
+—
+
+File is not in directory after running code executes. Solution: Clear the Kernel and output. Delete the file you created and print out the rows ie: writer.writerows(HiiList)
+before the file is written to make sure your data is correct.
+
+## WIll add in new southern HII region luminosities for completeness file
+## Rob's Stuff ##
+
+NEEDS FIXED - Simulate_new_Function.py (no output file produced)
+
+Simulate_new_Function.py
+
+Produces the output file “HIIregion_popSynthesis.csv”.
+
 _
+NEEDS FIXED - RunSim.ipynb (files of RunSim are not complete or ready to run. pdf is also an issue)
 
-File is not in directory after running code executes. Solution: Still working on one.
+RunSim.ipynb
 
+Collectively runs functions present for the simulate and compiles images to a pdf.
+
+
+PlotFaceOn_Combine.py
+
+Plots location of simulated vs observed HII regions in the Milky Way Galaxy. 2 Plots can be
+observed after execution to compare what we know to the simulation.
+
+—
+
+PlotFaceOn_Combine_NoAxes.py
+
+This one does the exact function of PlotFaceOn_Combine, but does not apply a bold x and y axis
+from the position of Earth.
+
+—
+
+PlotFaceOn_Sim.py
+
+Plots locations of simulated HII regions in the Milky Way Galaxy with an x and y axis centered
+on Earth's location.
+—
+
+PlotGalacticPlane_Combine.py
+—
+
+Plotlv_Combine.py
+—
